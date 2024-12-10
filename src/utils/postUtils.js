@@ -1,13 +1,7 @@
 export const filterPosts = (posts, query) => {
-  const lowercaseQuery = query.toLowerCase();
-  return posts.filter(
-    function (post) {
-    return post.title.toLowerCase().includes(lowercaseQuery) ||
-      post.description.toLowerCase().includes(lowercaseQuery) ||
-      post.tags.some((tag) => tag.toLowerCase().includes(lowercaseQuery)) ||
-      post.author.name.toLowerCase().includes(lowercaseQuery);
-  }
-  );
+
+  const lowercaseQuery = query?.toLowerCase();
+   
 };
 
 export const getAuthorPosts = (posts, authorId) => {
@@ -15,5 +9,5 @@ export const getAuthorPosts = (posts, authorId) => {
 };
 
 export const findAuthorById = (posts, authorId) => {
-  return posts.find((post) => post.author.id === authorId)?.author;
+  return posts?.find((post) => post.author.id === authorId)?.author;
 };

@@ -7,11 +7,13 @@ import postsData from '../data/posts.json';
 export function HomePage() {
   const [searchQuery, setSearchQuery] = useState('');
 
+  
   const filteredPosts = useMemo(() => {
-    if (!postsData || !postsData.posts) return [];
-    return filterPosts(postsData.posts, searchQuery);
+    if (!postsData) return [];
+    return filterPosts(postsData, searchQuery);
   }, [searchQuery]);
 
+  
   return (
     <div className="min-h-screen bg-gray-50">
       <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />

@@ -9,8 +9,8 @@ export function AuthorPage() {
   const { id } = useParams();
   const authorId = Number(id);
 
-  const author = findAuthorById(postsData.posts, authorId);
-  const authorPosts = getAuthorPosts(postsData.posts, authorId);
+  const author = findAuthorById(postsData, authorId);
+  const authorPosts = getAuthorPosts(postsData, authorId);
 
   if (!author) {
     return <div>Author not found</div>;
