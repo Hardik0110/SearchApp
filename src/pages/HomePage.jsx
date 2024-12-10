@@ -8,6 +8,7 @@ export function HomePage() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredPosts = useMemo(() => {
+    if (!postsData || !postsData.posts) return [];
     return filterPosts(postsData.posts, searchQuery);
   }, [searchQuery]);
 

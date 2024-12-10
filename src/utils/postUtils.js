@@ -1,11 +1,12 @@
 export const filterPosts = (posts, query) => {
   const lowercaseQuery = query.toLowerCase();
   return posts.filter(
-    (post) =>
-      post.title.toLowerCase().includes(lowercaseQuery) ||
+    function (post) {
+    return post.title.toLowerCase().includes(lowercaseQuery) ||
       post.description.toLowerCase().includes(lowercaseQuery) ||
       post.tags.some((tag) => tag.toLowerCase().includes(lowercaseQuery)) ||
-      post.author.name.toLowerCase().includes(lowercaseQuery)
+      post.author.name.toLowerCase().includes(lowercaseQuery);
+  }
   );
 };
 
